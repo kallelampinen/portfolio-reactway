@@ -13,6 +13,7 @@ export const Sourdough = () => {
   const [quantity, setQuantity] = useState(0);
   const [hydration, setHydration] = useState(0);
   const [ingridients, setIngridients] = useState([]);
+  console.log(ingridients);
 
   //Functions
 
@@ -32,7 +33,7 @@ export const Sourdough = () => {
     setSize(reset);
     setQuantity(reset);
     setHydration(reset);
-    setIngridients(resetArray);
+    setIngridients([resetArray]);
   };
 
   const calculation = () => {
@@ -42,7 +43,7 @@ export const Sourdough = () => {
     const salt = flour * 0.025;
     const finishedBread = [flour + "g", water + "g", starter + "g", salt + "g"];
 
-    setIngridients(["kalle", "olivia", "erik", "karl"]);
+    setIngridients([finishedBread]);
   };
 
   // console.log(size);

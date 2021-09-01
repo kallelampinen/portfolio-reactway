@@ -7,10 +7,11 @@ function IngridientsContainer({ ingridients, resetIngridients }) {
   const [starter, setStarter] = useState("");
   const [salt, setSalt] = useState("");
 
-  const displayIngridients = (ingridients) => {
-    for (const element of ingridients) {
-      console.log(element);
-    }
+  const displayIngridients = () => {
+    setFlour(ingridients[0][0]);
+    setWater(ingridients[0][1]);
+    setStarter(ingridients[0][2]);
+    setSalt(ingridients[0][3]);
   };
 
   useEffect(() => {

@@ -3,7 +3,6 @@ import Home from "./components/Home";
 import { GlobalStyles } from "./GlobalStyles";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Projects from "./components/Projects";
-import { BackGroundImage } from "./components/BackgroundImage";
 import { NavBar } from "./components/Navbar";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
