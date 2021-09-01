@@ -8,11 +8,11 @@ function Button({ resetIngridients, calculation }) {
     resetIngridients(reset, resetArray);
   };
   return (
-    <div>
-      <button type="submit" onClick={calculation}>
+    <div className="btns">
+      <button className="btn" type="submit" onClick={calculation}>
         Bake!
       </button>
-      <button type="submit" onClick={resetAll}>
+      <button className="btn" type="submit" onClick={resetAll}>
         Reset
       </button>
     </div>

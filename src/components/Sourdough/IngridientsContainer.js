@@ -21,6 +21,9 @@ function IngridientsContainer({ ingridients, resetIngridients }) {
   return (
     <div className="ingridients-container">
       <div className="ingridients">
+        <div className="need">
+          <p>You need!</p>
+        </div>
         <div>Flour:</div>
         <input
           type="text"

@@ -9,7 +9,6 @@ function ChooseSize({ breadSize, size }) {
 
   return (
     <div>
-      <div className="size-warning">Choose size!</div>
       <select onChange={setWeight} value={size}>
         <option value="0">Choose size:</option>
         <option value="400">400g</option>

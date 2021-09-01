@@ -1,5 +1,11 @@
-import { React, useState, useEffect } from "react";
-import { Wrapper, Content, MainContent, Ingridients } from "./Sourdough.styles";
+import { React, useState } from "react";
+import {
+  Wrapper,
+  Content,
+  MainContent,
+  Ingridients,
+  Header,
+} from "./Sourdough.styles";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import ChooseSize from "./ChooseSize";
@@ -72,14 +78,18 @@ export const Sourdough = () => {
           <p>Back</p>
         </Link>
         <MainContent>
-          <h2>Bread Calculator!</h2>
+          <Header>
+            <h2>Bread Calculator</h2>
+          </Header>
           <ChooseSize breadSize={breadSize} size={size} />
+
           <InputFields
             howManyBread={howManyBread}
             quantity={quantity}
             howMuchWater={howMuchWater}
             hydration={hydration}
           />
+
           <Button
             resetIngridients={resetIngridients}
             calculation={calculation}
