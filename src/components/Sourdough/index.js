@@ -12,7 +12,7 @@ export const Sourdough = () => {
   const [size, setSize] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const [hydration, setHydration] = useState(0);
-  const [ingridients, setIngridients] = useState([]);
+  const [ingridients, setIngridients] = useState(["", "", "", ""]);
   console.log(ingridients);
 
   //Functions

@@ -16,32 +16,30 @@ function IngridientsContainer({ ingridients, resetIngridients }) {
 
   useEffect(() => {
     displayIngridients();
-  }, [ingridients, resetIngridients]);
+  }, [ingridients]);
 
   return (
-    <div>
-      <div className="ingridients-container">
-        <div className="ingridients">
-          <div>Flour:</div>
-          <input
-            type="text"
-            id="flour"
-            value={flour}
-            onChange={resetIngridients}
-          />
-        </div>
-        <div className="ingridients">
-          <div>Water:</div>
-          <input type="text" value={water} />
-        </div>
-        <div className="ingridients">
-          <div>Starter:</div>
-          <input type="text" value={starter} placeholder="*" />
-        </div>
-        <div className="ingridients">
-          <div>Salt:</div>
-          <input type="text" value={salt} placeholder="*" />
-        </div>
+    <div className="ingridients-container">
+      <div className="ingridients">
+        <div>Flour:</div>
+        <input
+          type="text"
+          id="flour"
+          defaulvalue={flour}
+          onChange={resetIngridients}
+        />
+      </div>
+      <div className="ingridients">
+        <div>Water:</div>
+        <input type="text" defaulvalue={water} />
+      </div>
+      <div className="ingridients">
+        <div>Starter:</div>
+        <input type="text" defaulvalue={starter} placeholder="*" />
+      </div>
+      <div className="ingridients">
+        <div>Salt:</div>
+        <input type="text" defaulvalue={salt} placeholder="*" />
       </div>
     </div>
   );

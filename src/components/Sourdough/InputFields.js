@@ -16,7 +16,7 @@ function InputFields({ howManyBread, howMuchWater, hydration, quantity }) {
   return (
     <div>
       <div className="input-field">
-        <label for="">How many breads? </label>
+        <label>How many breads? </label>
         <input
           placeholder="Quantity"
           type="number"
@@ -25,7 +25,7 @@ function InputFields({ howManyBread, howMuchWater, hydration, quantity }) {
         ></input>
       </div>
       <div className="input-field">
-        <label for="">Hydration? </label>
+        <label>Hydration? </label>
         <input
           type="number"
           step="5"
