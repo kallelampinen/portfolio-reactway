@@ -20,6 +20,8 @@ function InputFields({ howManyBread, howMuchWater, hydration, quantity }) {
         <input
           placeholder="Quantity"
           type="number"
+          min="0"
+          step="1"
           onChange={howMany}
           value={quantity}
         ></input>
@@ -28,6 +30,7 @@ function InputFields({ howManyBread, howMuchWater, hydration, quantity }) {
         <label>Hydration? </label>
         <input
           type="number"
+          min="0"
           step="5"
           placeholder="%"
           onChange={howMuchHydration}
