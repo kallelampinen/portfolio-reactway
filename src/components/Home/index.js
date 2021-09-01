@@ -4,8 +4,6 @@ import { Wrapper, Content } from "./Home.styles";
 
 //Components
 import Countdown from "../Countdown";
-import { BackGroundImage } from "../BackgroundImage";
-import { NavBar } from "../Navbar";
 
 const Home = () => (
   <Wrapper>

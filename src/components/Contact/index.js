@@ -6,7 +6,7 @@ export const Contact = () => (
   <Wrapper>
     <Content>
       <p>Shoot me an email or visit my linkedin profile.</p>
-      <a class="mailto " href="mailto:kalle.lampinen@cmeducations.se">
+      <a href="mailto:kalle.lampinen@cmeducations.se">
         Kalle.lampinen@cmeducations.se
       </a>
       <a

@@ -15,7 +15,6 @@ function App() {
     <div className="App">
       <Router>
         <NavBar />
-        {/* <BackGroundImage /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />

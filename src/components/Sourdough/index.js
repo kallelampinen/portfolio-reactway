@@ -1,5 +1,5 @@
-import { React, useState } from "react";
-import { Wrapper, Content, MainContent } from "./Sourdough.styles";
+import { React, useState, useEffect } from "react";
+import { Wrapper, Content, MainContent, Ingridients } from "./Sourdough.styles";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import ChooseSize from "./ChooseSize";
@@ -13,7 +13,7 @@ export const Sourdough = () => {
   const [quantity, setQuantity] = useState(0);
   const [hydration, setHydration] = useState(0);
   const [ingridients, setIngridients] = useState(["", "", "", ""]);
-  console.log(ingridients);
+  const [styles, setStyles] = useState(0.5);
 
   //Functions
 
@@ -34,21 +34,36 @@ export const Sourdough = () => {
     setQuantity(reset);
     setHydration(reset);
     setIngridients([resetArray]);
+    setStyles(0.5);
   };
 
   const calculation = () => {
-    const flour = size * quantity;
-    const water = (hydration * flour) / 100;
-    const starter = flour * 0.25;
-    const salt = flour * 0.025;
-    const finishedBread = [flour + "g", water + "g", starter + "g", salt + "g"];
-
-    setIngridients([finishedBread]);
+    if (size === 0) {
+      alert("choose size");
+      return;
+    }
+    if (quantity === 0) {
+      alert("choose how many bread");
+      return;
+    }
+    if (hydration === 0) {
+      alert("choose hydration");
+      return;
+    } else {
+      const flour = size * quantity;
+      const water = (hydration * flour) / 100;
+      const starter = flour * 0.25;
+      const salt = flour * 0.025;
+      const finishedBread = [
+        flour + "g",
+        water + "g",
+        starter + "g",
+        salt + "g",
+      ];
+      setStyles(1);
+      setIngridients([finishedBread]);
+    }
   };
-
-  // console.log(size);
-  // console.log(quantity);
-  // console.log(hydration);
 
   return (
     <Wrapper>
@@ -69,10 +84,12 @@ export const Sourdough = () => {
             resetIngridients={resetIngridients}
             calculation={calculation}
           />
-          <IngridientsContainer
-            ingridients={ingridients}
-            resetIngridients={resetIngridients}
-          />
+          <Ingridients opacity={styles}>
+            <IngridientsContainer
+              ingridients={ingridients}
+              resetIngridients={resetIngridients}
+            />
+          </Ingridients>
           <p>
             *Starter and salt are static values (25% and 2.5% of flour weight ).
           </p>

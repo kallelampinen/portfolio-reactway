@@ -49,3 +49,7 @@ export const MainContent = styled.div`
     font-weight: 700;
   }
 `;
+
+export const Ingridients = styled.div`
+  opacity: ${(props) => props.opacity};
+`;

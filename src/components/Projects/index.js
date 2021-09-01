@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import apiImage from "../../images/bread.JPG";
 import breadImage from "../../images/unsplash2.jpg";
 import Home from "../Home";
-import { BackGroundImage } from "../BackgroundImage";
 
 const Projects = () => (
   <Wrapper>
