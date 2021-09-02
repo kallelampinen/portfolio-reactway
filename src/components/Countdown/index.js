@@ -6,8 +6,7 @@ const Countdown = () => {
   const calculateTimeLeft = () => {
     let lastDayofSchool = new Date("Jun 21, 2022 12:00:00");
     const difference = +new Date(`${lastDayofSchool}-10-1`) - +new Date();
-    {
-    }
+
     let timeLeft = {};
 
     if (difference > 0) {

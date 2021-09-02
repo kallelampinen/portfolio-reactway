@@ -15,7 +15,7 @@ export const Contact = () => (
         rel="noopener noreferrer"
         target="_blank"
       >
-        <img className="linkedin-logo" src={LinkedinLogo} />
+        <img className="linkedin-logo" alt="linkedin-logo" src={LinkedinLogo} />
       </a>
     </Content>
   </Wrapper>

@@ -5,44 +5,51 @@ import {
   MainContent,
   Ingridients,
   Header,
+  Required,
 } from "./Sourdough.styles";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import ChooseSize from "./ChooseSize";
 import IngridientsContainer from "./IngridientsContainer";
-
-import InputFields from "./InputFields";
+import Input from "./Input";
 
 export const Sourdough = () => {
   //Hooks
-  const [size, setSize] = useState(0);
-  const [quantity, setQuantity] = useState(0);
-  const [hydration, setHydration] = useState(0);
-  const [ingridients, setIngridients] = useState(["", "", "", ""]);
+  const [size, setSize] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [hydration, setHydration] = useState("");
+  const [ingridients, setIngridients] = useState([]);
   const [styles, setStyles] = useState(0.5);
+  const [required, setRequired] = useState([]);
 
-  //Functions
+  ///////////////Functions/////////////////
 
   const breadSize = (weight) => {
     setSize(weight);
   };
 
-  const howManyBread = (numberOfBread) => {
+  const howManyBread = (e) => {
+    const numberOfBread = e.target.value;
+
     setQuantity(numberOfBread);
   };
 
-  const howMuchWater = (water) => {
+  const howMuchWater = (e) => {
+    const water = e.target.value;
+
     setHydration(water);
   };
 
-  const resetIngridients = (reset, resetArray) => {
-    setSize(reset);
-    setQuantity(reset);
-    setHydration(reset);
-    setIngridients([resetArray]);
+  //Reset all fields function
+  const resetIngridients = () => {
+    setSize(0);
+    setQuantity(0);
+    setHydration(0);
+    setIngridients(["", "", "", ""]);
     setStyles(0.5);
   };
 
+  //Calculate ingridients function
   const calculation = () => {
     if (size === 0) {
       alert("choose size");
@@ -66,10 +73,12 @@ export const Sourdough = () => {
         starter + "g",
         salt + "g",
       ];
+
       setStyles(1);
-      setIngridients([finishedBread]);
+      setIngridients(finishedBread);
     }
   };
+  console.log(ingridients);
 
   return (
     <Wrapper>
@@ -81,23 +90,32 @@ export const Sourdough = () => {
           <Header>
             <h2>Bread Calculator</h2>
           </Header>
-          <ChooseSize breadSize={breadSize} size={size} />
+          <Required required={required}>
+            <ChooseSize breadSize={breadSize} size={size} />
+          </Required>
+          <div className="input-field">
+            <Input
+              textLabel="How many bread?"
+              bakeValue={howManyBread}
+              myState={quantity}
+            />
+            <Input
+              textLabel="Hydration?"
+              bakeValue={howMuchWater}
+              myState={hydration}
+            />
+          </div>
 
-          <InputFields
-            howManyBread={howManyBread}
-            quantity={quantity}
-            howMuchWater={howMuchWater}
-            hydration={hydration}
-          />
+          <div className="btns">
+            <Button btnText="Bake!" btnClick={calculation} />
+            <Button btnText="Reset" btnClick={resetIngridients} />
+          </div>
 
-          <Button
-            resetIngridients={resetIngridients}
-            calculation={calculation}
-          />
           <Ingridients opacity={styles}>
             <IngridientsContainer
+              setIngridients={setIngridients}
               ingridients={ingridients}
-              resetIngridients={resetIngridients}
+              calculation={calculation}
             />
           </Ingridients>
           <p>

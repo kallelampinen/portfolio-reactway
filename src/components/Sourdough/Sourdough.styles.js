@@ -102,3 +102,7 @@ export const Header = styled.div`
 export const Ingridients = styled.div`
   opacity: ${(props) => props.opacity};
 `;
+
+export const Required = styled.div`
+  color: ${(props) => props.required};
+`;

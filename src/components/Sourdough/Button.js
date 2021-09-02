@@ -1,19 +1,10 @@
-import { React, useState } from "react";
+import { React } from "react";
 
-function Button({ resetIngridients, calculation }) {
-  const resetAll = () => {
-    const reset = 0;
-    const resetArray = ["", "", "", ""];
-
-    resetIngridients(reset, resetArray);
-  };
+function Button({ btnClick, btnText }) {
   return (
-    <div className="btns">
-      <button className="btn" type="submit" onClick={calculation}>
-        Bake!
-      </button>
-      <button className="btn" type="submit" onClick={resetAll}>
-        Reset
+    <div>
+      <button className="btn" type="submit" onClick={btnClick}>
+        {btnText}
       </button>
     </div>
   );

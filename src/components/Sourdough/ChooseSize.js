@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 
 function ChooseSize({ breadSize, size }) {
   const setWeight = (e) => {
@@ -9,7 +9,7 @@ function ChooseSize({ breadSize, size }) {
 
   return (
     <div>
-      <select onChange={setWeight} value={size}>
+      <select className="requiredRed" onChange={setWeight} value={size}>
         <option value="0">Choose size:</option>
         <option value="400">400g</option>
         <option value="600">600g</option>
