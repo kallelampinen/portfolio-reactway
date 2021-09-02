@@ -1,26 +1,21 @@
 import { React, useState } from "react";
-import {
-  Wrapper,
-  Content,
-  MainContent,
-  Ingridients,
-  Header,
-  Required,
-} from "./Sourdough.styles";
+import { Wrapper, MainContent, Header, Required } from "./Sourdough.styles";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import ChooseSize from "./ChooseSize";
-import IngridientsContainer from "./IngridientsContainer";
+import Ingridient from "./Ingridient";
 import Input from "./Input";
+import IngridientsContainer from "./IngridientsContainer";
 
 export const Sourdough = () => {
   //Hooks
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState("");
   const [hydration, setHydration] = useState("");
-  const [ingridients, setIngridients] = useState([]);
+  const [ingridients, setIngridients] = useState(["", "", "", ""]);
   const [styles, setStyles] = useState(0.5);
-  const [required, setRequired] = useState([]);
+  const [required, setRequired] = useState("");
+  console.log(required);
 
   ///////////////Functions/////////////////
 
@@ -28,17 +23,21 @@ export const Sourdough = () => {
     setSize(weight);
   };
 
-  const howManyBread = (e) => {
-    const numberOfBread = e.target.value;
-
-    setQuantity(numberOfBread);
+  const howManyBread = (howMuch) => {
+    setQuantity(howMuch);
   };
 
-  const howMuchWater = (e) => {
-    const water = e.target.value;
-
-    setHydration(water);
+  const howMuchWater = (howMuch) => {
+    setHydration(howMuch);
   };
+
+  const howMuchIngridient = (howMuch) => {
+    setIngridients(howMuch);
+  };
+  const requiredText = (textColor) => {
+    setRequired(textColor);
+  };
+  console.log(size);
 
   //Reset all fields function
   const resetIngridients = () => {
@@ -51,15 +50,13 @@ export const Sourdough = () => {
 
   //Calculate ingridients function
   const calculation = () => {
-    if (size === 0) {
-      alert("choose size");
+    if (size == "" || size == 0) {
+      setRequired("red");
       return;
-    }
-    if (quantity === 0) {
+    } else if (quantity == "" || quantity == 0) {
       alert("choose how many bread");
       return;
-    }
-    if (hydration === 0) {
+    } else if (hydration == "" || hydration == 0) {
       alert("choose hydration");
       return;
     } else {
@@ -77,52 +74,54 @@ export const Sourdough = () => {
       setStyles(1);
       setIngridients(finishedBread);
     }
+    setRequired("black");
   };
+
   console.log(ingridients);
 
   return (
     <Wrapper>
-      <Content>
-        <Link to="/projects">
-          <p>Back</p>
-        </Link>
-        <MainContent>
-          <Header>
-            <h2>Bread Calculator</h2>
-          </Header>
-          <Required required={required}>
-            <ChooseSize breadSize={breadSize} size={size} />
-          </Required>
-          <div className="input-field">
-            <Input
-              textLabel="How many bread?"
-              bakeValue={howManyBread}
-              myState={quantity}
-            />
-            <Input
-              textLabel="Hydration?"
-              bakeValue={howMuchWater}
-              myState={hydration}
-            />
-          </div>
+      <Link to="/projects">
+        <p>Back</p>
+      </Link>
+      <MainContent>
+        <Header>
+          <h2>Bread Calculator</h2>
+        </Header>
+        <Required required={required}>
+          <ChooseSize
+            requiredText={requiredText}
+            breadSize={breadSize}
+            size={size}
+          />
+        </Required>
+        <div className="input-field">
+          <Input
+            textLabel="How many bread?"
+            amount={howManyBread}
+            amountState={quantity}
+          />
+          <Input
+            textLabel="Hydration?"
+            amount={howMuchWater}
+            amountState={hydration}
+          />
+        </div>
 
-          <div className="btns">
-            <Button btnText="Bake!" btnClick={calculation} />
-            <Button btnText="Reset" btnClick={resetIngridients} />
-          </div>
+        <div className="btns">
+          <Button btnText="Bake!" btnClick={calculation} />
+          <Button btnText="Reset" btnClick={resetIngridients} />
+        </div>
+        <IngridientsContainer
+          ingridients={ingridients}
+          howMuchIngridient={howMuchIngridient}
+          styles={styles}
+        />
 
-          <Ingridients opacity={styles}>
-            <IngridientsContainer
-              setIngridients={setIngridients}
-              ingridients={ingridients}
-              calculation={calculation}
-            />
-          </Ingridients>
-          <p>
-            *Starter and salt are static values (25% and 2.5% of flour weight ).
-          </p>
-        </MainContent>
-      </Content>
+        <p>
+          *Starter and salt are static values (25% and 2.5% of flour weight ).
+        </p>
+      </MainContent>
     </Wrapper>
   );
 };

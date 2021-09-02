@@ -1,6 +1,12 @@
 import React from "react";
 
-function Input({ bakeValue, myState, textLabel }) {
+function Input({ amount, amountState, textLabel }) {
+  const setInput = (e) => {
+    const howMuch = e.target.value;
+
+    amount(howMuch);
+  };
+
   return (
     <div>
       <label>{textLabel}</label>
@@ -9,8 +15,8 @@ function Input({ bakeValue, myState, textLabel }) {
         type="number"
         min="0"
         step="1"
-        onChange={bakeValue}
-        value={myState}
+        onChange={setInput}
+        value={amountState}
       ></input>
     </div>
   );

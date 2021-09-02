@@ -11,8 +11,6 @@ export const Wrapper = styled.div`
   height: 100vh;
   background-position: center;
   width: 100%;
-`;
-export const Content = styled.div`
   display: flex;
   justify-content: center;
   padding: 20px 40px;
@@ -38,6 +36,7 @@ export const MainContent = styled.div`
   padding-top: 20vh;
   width: 250px;
   margin-top: 10vh;
+  height: 65vh;
   background-image: linear-gradient(rgb(211, 190, 166), rgb(226, 217, 193));
   padding: 30px;
   border-radius: 5px;
@@ -60,6 +59,7 @@ export const MainContent = styled.div`
   input {
     margin-bottom: 5px;
     width: 130px;
+    color: ${(props) => props.required};
   }
 
   p {
@@ -104,5 +104,7 @@ export const Ingridients = styled.div`
 `;
 
 export const Required = styled.div`
-  color: ${(props) => props.required};
+  select {
+    color: ${(props) => props.required};
+  }
 `;

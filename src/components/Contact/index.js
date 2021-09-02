@@ -10,7 +10,6 @@ export const Contact = () => (
         Kalle.lampinen@cmeducations.se
       </a>
       <a
-        class="paragraf-font"
         href="https://www.linkedin.com/in/kalle-lampinen-597a651ba/"
         rel="noopener noreferrer"
         target="_blank"
