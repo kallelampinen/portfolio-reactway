@@ -3,7 +3,6 @@ import { Wrapper, MainContent, Header, Required } from "./Sourdough.styles";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import ChooseSize from "./ChooseSize";
-import Ingridient from "./Ingridient";
 import Input from "./Input";
 import IngridientsContainer from "./IngridientsContainer";
 
@@ -14,8 +13,9 @@ export const Sourdough = () => {
   const [hydration, setHydration] = useState("");
   const [ingridients, setIngridients] = useState(["", "", "", ""]);
   const [styles, setStyles] = useState(0.5);
-  const [required, setRequired] = useState("");
-  console.log(required);
+  const [requiredSize, setRequiredSize] = useState("");
+  const [requiredBread, setRequiredBread] = useState("");
+  const [requiredWater, setRequiredWater] = useState("");
 
   ///////////////Functions/////////////////
 
@@ -35,29 +35,31 @@ export const Sourdough = () => {
     setIngridients(howMuch);
   };
   const requiredText = (textColor) => {
-    setRequired(textColor);
+    setRequiredSize(textColor);
   };
-  console.log(size);
 
   //Reset all fields function
   const resetIngridients = () => {
-    setSize(0);
-    setQuantity(0);
-    setHydration(0);
+    setSize("0");
+    setQuantity("");
+    setHydration("");
     setIngridients(["", "", "", ""]);
     setStyles(0.5);
+    setRequiredSize("black");
+    setRequiredBread("black");
+    setRequiredWater("black");
   };
 
   //Calculate ingridients function
   const calculation = () => {
-    if (size == "" || size == 0) {
-      setRequired("red");
+    if (size === "" || size === "0") {
+      setRequiredSize("red");
       return;
-    } else if (quantity == "" || quantity == 0) {
-      alert("choose how many bread");
+    } else if (quantity === "" || quantity === "0") {
+      setRequiredBread("red");
       return;
-    } else if (hydration == "" || hydration == 0) {
-      alert("choose hydration");
+    } else if (hydration === "" || hydration === "0") {
+      setRequiredWater("red");
       return;
     } else {
       const flour = size * quantity;
@@ -74,10 +76,8 @@ export const Sourdough = () => {
       setStyles(1);
       setIngridients(finishedBread);
     }
-    setRequired("black");
+    setRequiredSize("black");
   };
-
-  console.log(ingridients);
 
   return (
     <Wrapper>
@@ -88,25 +88,32 @@ export const Sourdough = () => {
         <Header>
           <h2>Bread Calculator</h2>
         </Header>
-        <Required required={required}>
+        <Required
+          requiredSize={requiredSize}
+          requiredWater={requiredWater}
+          requiredBread={requiredBread}
+        >
           <ChooseSize
             requiredText={requiredText}
             breadSize={breadSize}
             size={size}
           />
+
+          <div className="input-field">
+            <Input
+              inputName="inputOne"
+              textLabel="How many bread?"
+              amount={howManyBread}
+              amountState={quantity}
+            />
+            <Input
+              inputName="inputTwo"
+              textLabel="Hydration?"
+              amount={howMuchWater}
+              amountState={hydration}
+            />
+          </div>
         </Required>
-        <div className="input-field">
-          <Input
-            textLabel="How many bread?"
-            amount={howManyBread}
-            amountState={quantity}
-          />
-          <Input
-            textLabel="Hydration?"
-            amount={howMuchWater}
-            amountState={hydration}
-          />
-        </div>
 
         <div className="btns">
           <Button btnText="Bake!" btnClick={calculation} />

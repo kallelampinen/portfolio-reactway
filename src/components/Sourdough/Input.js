@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input({ amount, amountState, textLabel }) {
+function Input({ amount, amountState, textLabel, inputName }) {
   const setInput = (e) => {
     const howMuch = e.target.value;
 
@@ -11,7 +11,8 @@ function Input({ amount, amountState, textLabel }) {
     <div>
       <label>{textLabel}</label>
       <input
-        placeholder="Quantity"
+        className={inputName}
+        placeholder={textLabel}
         type="number"
         min="0"
         step="1"

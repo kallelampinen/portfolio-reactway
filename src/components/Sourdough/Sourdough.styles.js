@@ -50,6 +50,7 @@ export const MainContent = styled.div`
     height: 20px;
     border: solid black 1px;
     box-shadow: 0 2px 3px 1px rgb(0 0 0 / 20%);
+    cursor: pointer;
   }
   .btns {
     display: flex;
@@ -59,7 +60,6 @@ export const MainContent = styled.div`
   input {
     margin-bottom: 5px;
     width: 130px;
-    color: ${(props) => props.required};
   }
 
   p {
@@ -105,6 +105,16 @@ export const Ingridients = styled.div`
 
 export const Required = styled.div`
   select {
-    color: ${(props) => props.required};
+    color: ${(props) => props.requiredSize};
+  }
+  .inputOne {
+    ::placeholder {
+      color: ${(props) => props.requiredBread};
+    }
+  }
+  .inputTwo {
+    ::placeholder {
+      color: ${(props) => props.requiredWater};
+    }
   }
 `;
