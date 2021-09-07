@@ -13,13 +13,13 @@ export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px 40px;
+  padding: 15px 40px;
   color: black;
 
   a {
     position: fixed;
     right: 0;
-    padding: 10px 40px;
+    padding: 0px 40px;
     color: white;
     text-decoration: none;
   }
