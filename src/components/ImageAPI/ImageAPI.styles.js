@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  z-index: 91;
-
   width: 100%;
   background-color: black;
-  height: 100vh;
+  height: 100%;
   a {
     position: fixed;
     right: 0;

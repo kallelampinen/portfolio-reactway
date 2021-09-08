@@ -2,9 +2,9 @@ import styled from "styled-components";
 import BreadBackground from "../../images/wood.jpg";
 
 export const Wrapper = styled.div`
-  z-index: 91;
-  position: fixed;
   width: 100%;
+  background-color: black;
+  height: 100%;
   background-image: url(${BreadBackground});
   background-size: cover;
   background-repeat: repeat-x;
