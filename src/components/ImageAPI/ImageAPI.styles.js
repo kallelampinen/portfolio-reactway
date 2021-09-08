@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+
+
   width: 100%;
   background-color: black;
-  height: 100%;
+  height: 100vh;
   a {
     position: fixed;
     right: 0;
@@ -13,9 +15,28 @@ export const Wrapper = styled.div`
   }
 `;
 export const Content = styled.div`
+.nextPrev{
+  color:white;
+  background-color: black;
+  border:none;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 50px 0px;
+}
+
+.btnContainer{
+  display:flex;
+  justify-content: space-between;
+  width: 120px;
+}
+background-color: black;
   .next {
-    color: black;
-    padding-bottom: 50px;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 50px;
+    background-color: black;
+    border: none;
+    font-size: 30px;
   }
   width: 100%;
   display: flex;

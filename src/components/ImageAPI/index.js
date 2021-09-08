@@ -8,15 +8,26 @@ import RandomImage from "./RandomImage";
 import { Search } from "./Search";
 import { ImageContainer } from "./ImageContainer";
 
+import NextPrevButton from "./NextPrevButton";
+
+
+
+
+
 export const ImageAPI = () => {
   //Hooks
   const [error, setError] = useState("");
   const [data, setData] = useState([]);
-  const [searchValue, setSearchValue] = useState("Beach");
+  const [searchValue, setSearchValue] = useState("beach");
+  const[page, setPage] = useState(1)
+
+
+  console.log(page)
+  //Fetch data with search value
   const fetchData = async () => {
     try {
       const myFetch = await fetch(
-        `https://api.unsplash.com/search/photos?&per_page=30&query=${searchValue}&client_id=${API_KEY}`
+        `https://api.unsplash.com/search/photos?&page=${page}&per_page=30&query=${searchValue}&client_id=${API_KEY}`
       );
       if (!myFetch.ok) {
         throw new Error(myFetch.status);
@@ -28,15 +39,28 @@ export const ImageAPI = () => {
       console.log(error);
     }
   };
+ 
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [page]);
 
   //Functions
   const setSearch = (searchInput) => {
     setSearchValue(searchInput);
   };
+
+  const handlepage = () => {
+    setPage(page+1)
+  }
+
+  const handlePrevPage = () => {
+    setPage(page-1)
+  }
+
+
+
+
 
   return (
     <Wrapper>
@@ -45,6 +69,7 @@ export const ImageAPI = () => {
       </Link>
       <Content>
         <h1>Unsplash API</h1>
+  
         <Search
           searchValue={searchValue}
           setSearch={setSearch}
@@ -52,7 +77,10 @@ export const ImageAPI = () => {
         />
         <RandomImage />
         <ImageContainer data={data} />
-        <p className="next">Next page</p>
+              <div className="btnContainer">
+      <NextPrevButton titleText="Previus" handlePage={handlePrevPage} />
+      <NextPrevButton titleText="Next" handlePage={handlepage}/>
+      </div>
       </Content>
     </Wrapper>
   );

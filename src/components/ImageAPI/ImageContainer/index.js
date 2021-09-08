@@ -3,7 +3,7 @@ import { Wrapper, Content } from "./ImageContainer.styles";
 
 export const ImageContainer = ({ data }) => {
   data.map((item) => {
-    console.log(item.urls.regular);
+   
   });
   return (
     <Wrapper>

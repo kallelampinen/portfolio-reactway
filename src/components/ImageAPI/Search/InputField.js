@@ -18,6 +18,7 @@ function InputField({ searchValue, setSearch, fetchData }) {
         type="text"
         placeholder="Type something!"
         onChange={handleChange}
+        
         value={searchValue}
         onKeyDown={handleKeyDown}
       />

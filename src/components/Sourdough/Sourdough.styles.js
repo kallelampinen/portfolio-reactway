@@ -3,8 +3,7 @@ import BreadBackground from "../../images/wood.jpg";
 
 export const Wrapper = styled.div`
   width: 100%;
-  background-color: black;
-  height: 100%;
+  height: 100vh;
   background-image: url(${BreadBackground});
   background-size: cover;
   background-repeat: repeat-x;
