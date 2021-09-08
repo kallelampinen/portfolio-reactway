@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
   }
 `;
 export const Content = styled.div`
+  .next {
+    color: black;
+    padding-bottom: 50px;
+  }
   width: 100%;
   display: flex;
   justify-content: center;

@@ -12,7 +12,7 @@ export const ImageAPI = () => {
   //Hooks
   const [error, setError] = useState("");
   const [data, setData] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("Beach");
   const fetchData = async () => {
     try {
       const myFetch = await fetch(
@@ -28,6 +28,10 @@ export const ImageAPI = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   //Functions
   const setSearch = (searchInput) => {
@@ -48,6 +52,7 @@ export const ImageAPI = () => {
         />
         <RandomImage />
         <ImageContainer data={data} />
+        <p className="next">Next page</p>
       </Content>
     </Wrapper>
   );

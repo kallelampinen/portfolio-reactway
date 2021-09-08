@@ -1,9 +1,15 @@
 import React from "react";
 
-function InputField({ searchValue, setSearch }) {
+function InputField({ searchValue, setSearch, fetchData }) {
   const handleChange = (e) => {
     const searchInput = e.target.value;
     setSearch(searchInput);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      fetchData();
+    }
   };
 
   return (
@@ -13,6 +19,7 @@ function InputField({ searchValue, setSearch }) {
         placeholder="Type something!"
         onChange={handleChange}
         value={searchValue}
+        onKeyDown={handleKeyDown}
       />
     </div>
   );

@@ -8,7 +8,8 @@ export const Wrapper = styled.div`
 `;
 export const Content = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 350px 350px 350px;
+  gap: 15px;
   padding-top: 40px;
   p {
     padding-top: 5px;
@@ -23,5 +24,9 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .next {
+    color: black;
   }
 `;
