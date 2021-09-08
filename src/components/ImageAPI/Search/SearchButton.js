@@ -1,9 +1,9 @@
 import React from "react";
 
-function SearchButton() {
+function SearchButton({ fetchData }) {
   return (
     <div>
-      <button>Search!</button>
+      <button onClick={fetchData}>Search!</button>
     </div>
   );
 }
