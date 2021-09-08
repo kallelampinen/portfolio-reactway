@@ -1,9 +1,9 @@
 import React from "react";
 
-function RandomImage() {
+function RandomImage({fetchRandom}) {
   return (
     <div className="random">
-      <p>Get random image</p>
+      <p onClick={fetchRandom}>Get random image</p>
     </div>
   );
 }
