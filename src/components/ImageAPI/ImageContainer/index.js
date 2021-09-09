@@ -2,9 +2,6 @@ import React from "react";
 import { Wrapper, Content } from "./ImageContainer.styles";
 
 export const ImageContainer = ({ data }) => {
-  data.map((item) => {
-   
-  });
   return (
     <Wrapper>
       <Content>

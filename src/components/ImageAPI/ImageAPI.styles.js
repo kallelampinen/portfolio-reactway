@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-
-
   width: 100%;
   background-color: black;
   height: 100vh;
@@ -15,21 +13,22 @@ export const Wrapper = styled.div`
   }
 `;
 export const Content = styled.div`
-.nextPrev{
-  color:white;
-  background-color: black;
-  border:none;
-  font-size: 20px;
-  cursor: pointer;
-  margin: 50px 0px;
-}
+  .nextPrev {
+    color: white;
+    background-color: black;
+    border: none;
+    font-size: 20px;
+    padding: 5px;
+    cursor: pointer;
+    margin: 50px 0px;
+  }
 
-.btnContainer{
-  display:flex;
-  justify-content: space-between;
-  width: 120px;
-}
-background-color: black;
+  .btnContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  background-color: black;
   .next {
     cursor: pointer;
     color: white;
@@ -74,7 +73,7 @@ background-color: black;
     }
   }
 
-  .random {
+  .randomBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,7 +81,22 @@ background-color: black;
     color: black;
     width: 250px;
     cursor: pointer;
-
+    margin-bottom: 20px;
     height: 30px;
+  }
+  img {
+    height: 350px;
+    width: 350px;
+    object-fit: cover;
+  }
+
+  .randomImage {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .randomImage > p {
+    padding-top: 10px;
   }
 `;

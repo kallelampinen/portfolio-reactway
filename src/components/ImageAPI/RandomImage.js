@@ -1,11 +1,16 @@
 import React from "react";
 
-function RandomImage({fetchRandom}) {
+export const RandomImage = ({ random }) => {
   return (
-    <div className="random">
-      <p onClick={fetchRandom}>Get random image</p>
+    <div>
+      {random.map((item) => {
+        return (
+          <div className="randomImage">
+            <img src={item.urls.regular} alt="" />
+            <p>{item.alt_description}</p>
+          </div>
+        );
+      })}
     </div>
   );
-}
-
-export default RandomImage;
+};

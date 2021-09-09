@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  
 `;
 export const Content = styled.div`
   display: grid;
